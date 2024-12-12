@@ -2,12 +2,12 @@
 #include <iostream>
 
 int main() {
-  int64_t in_n;
-  std::cin >> in_n;
+  int64_t in_num;
+  std::cin >> in_num;
   std::deque<int64_t> first_half;
   std::deque<int64_t> second_half;
   char input_command;
-  for (int32_t i = 0; i < in_n; i++) {
+  for (int32_t i = 0; i < in_num; i++) {
     std::cin >> input_command;
     if (input_command == '+') {
       int64_t input;
