@@ -21,24 +21,24 @@ void UpdateHeight(Node* node) {
   }
 }
 
-Node* RotateRight(Node* y) {
-  Node* x = y->left;
-  Node* temp = x->right;
-  x->right = y;
-  y->left = temp;
-  UpdateHeight(y);
-  UpdateHeight(x);
-  return x;
+Node* RotateRight(Node* second) {
+  Node* first = second->left;
+  Node* temp = first->right;
+  first->right = second;
+  second->left = temp;
+  UpdateHeight(second);
+  UpdateHeight(first);
+  return first;
 }
 
-Node* RotateLeft(Node* x) {
-  Node* y = x->right;
-  Node* temp = y->left;
-  y->left = x;
-  x->right = temp;
-  UpdateHeight(x);
-  UpdateHeight(y);
-  return y;
+Node* RotateLeft(Node* first) {
+  Node* second = first->right;
+  Node* temp = second->left;
+  second->left = first;
+  first->right = temp;
+  UpdateHeight(first);
+  UpdateHeight(second);
+  return second;
 }
 
 Node* Balance(Node* node) {
@@ -99,25 +99,25 @@ int main() {
   std::ios_base::sync_with_stdio(false);
   std::cin.tie(nullptr);
   Node* root = nullptr;
-  int in_q = 0;
+  int count_of_query = 0;
   int last_lwb = -1;
   int last_result = 0;
-  std::cin >> in_q;
-  for (int i = 1; i <= in_q; i++) {
+  std::cin >> count_of_query;
+  for (int i = 1; i <= count_of_query; i++) {
     char type;
     std::cin >> type;
     if (type == '+') {
-      int in_x = 0;
-      std::cin >> in_x;
+      int in_var = 0;
+      std::cin >> in_var;
       if (last_lwb + 1 == i) {
-        in_x = (in_x + last_result) % cMod;
+        in_var = (in_var + last_result) % cMod;
       }
-      root = Insert(root, in_x);
+      root = Insert(root, in_var);
     } else {
-      int in_x = 0;
-      std::cin >> in_x;
+      int in_var = 0;
+      std::cin >> in_var;
       last_lwb = i;
-      last_result = LowerBound(root, in_x);
+      last_result = LowerBound(root, in_var);
       std::cout << last_result << '\n';
     }
   }
