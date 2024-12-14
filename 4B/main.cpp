@@ -107,17 +107,17 @@ int main() {
     char type;
     std::cin >> type;
     if (type == '+') {
-      int in_var = 0;
-      std::cin >> in_var;
+      int var = 0;
+      std::cin >> var;
       if (last_lwb + 1 == i) {
-        in_var = (in_var + last_result) % cMod;
+        var = (in_var + last_result) % cMod;
       }
-      root = Insert(root, in_var);
+      root = Insert(root, var);
     } else {
-      int in_var = 0;
-      std::cin >> in_var;
+      int var = 0;
+      std::cin >> var;
       last_lwb = i;
-      last_result = LowerBound(root, in_var);
+      last_result = LowerBound(root, var);
       std::cout << last_result << '\n';
     }
   }
