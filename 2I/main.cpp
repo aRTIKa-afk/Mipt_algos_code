@@ -2,14 +2,14 @@
 #include <iostream>
 
 int main() {
-  int64_t in_num;
-  std::cin >> in_num;
+  int64_t num;
+  std::cin >> num;
   std::deque<int64_t> first_half;
   std::deque<int64_t> second_half;
-  char input_command;
-  for (int32_t i = 0; i < in_num; i++) {
-    std::cin >> input_command;
-    if (input_command == '+') {
+  char command;
+  for (int32_t i = 0; i < num; i++) {
+    std::cin >> command;
+    if (command == '+') {
       int64_t input;
       std::cin >> input;
       if (first_half.size() > second_half.size()) {
@@ -19,7 +19,7 @@ int main() {
         first_half.push_back(second_half.front());
         second_half.pop_front();
       }
-    } else if (input_command == '*') {
+    } else if (command == '*') {
       int64_t input;
       std::cin >> input;
       if (first_half.size() > second_half.size()) {
